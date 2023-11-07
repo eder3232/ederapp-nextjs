@@ -3,8 +3,9 @@ import Navbar from "../shared/components/navbar/navbar";
 
 export default function Home() {
   return (
-    <main className="">
-      <Navbar />
+    <main className="container">
+      {/* <Navbar /> */}
+      <div>Contenido!</div>
     </main>
   );
 }
