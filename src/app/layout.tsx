@@ -38,7 +38,7 @@ export default function RootLayout({
           <div className="relative min-h-screen">
             <div className="pb-96">
               <Navbar />
-              {children}
+              <div className="container">{children}</div>
             </div>
             <Footer />
           </div>
