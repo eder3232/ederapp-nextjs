@@ -45,7 +45,7 @@ const Springs = ({
           />
         </div>
 
-        <VerticesTable reactVerticesData={initialData.vertices} />
+        <VerticesTable />
       </div>
       <TypographyH2>Resortes:</TypographyH2>
     </div>
