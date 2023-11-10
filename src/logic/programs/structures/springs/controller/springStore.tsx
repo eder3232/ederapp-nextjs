@@ -71,6 +71,10 @@ interface ISpringState {
 }
 
 interface ISpringActions {
+  setInitialData: (data: {
+    edges: IInputReactEdges[];
+    vertices: IInputReactVertices[];
+  }) => void;
   controller_userWantToDefineDOF: (
     e: React.ChangeEvent<HTMLInputElement>,
   ) => void;
@@ -101,8 +105,8 @@ export const useSpringStore = create(
       edges: [],
       logic: [],
     },
-    reactVertices: initialSpringsVerticesData,
-    reactEdges: initialSpringsEdgesData,
+    reactVertices: [],
+    reactEdges: [],
     // *Resultados
     res: {
       locals: new Map(),
@@ -130,6 +134,14 @@ export const useSpringStore = create(
         unrestricted: [],
         solved: [],
       },
+    },
+
+    // *Initial Data
+    setInitialData(data) {
+      set((state) => {
+        state.reactEdges = data.edges;
+        state.reactVertices = data.vertices;
+      });
     },
     // *Config
     firstCalculate: () =>
