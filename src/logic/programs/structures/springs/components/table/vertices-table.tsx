@@ -6,12 +6,12 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import React from "react";
-import { IInputReactVertices } from "../../interfaces/vertices";
-import { useSpringStore } from "../../controller/springStore";
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+
+import { cn } from "@/lib/utils";
+
+import { useSpringStore } from "../../controller/springStore";
 
 const VerticesTable = () => {
   const reactVertices = useSpringStore((state) => state.reactVertices);
@@ -36,13 +36,17 @@ const VerticesTable = () => {
       <Table className="w-auto table-auto">
         <TableHeader>
           <TableRow>
-            <TableHead>Add</TableHead>
-            <TableHead>Remove</TableHead>
-            <TableHead>Nombre</TableHead>
-            <TableHead>Fuerza</TableHead>
-            <TableHead>Desplazamiento</TableHead>
-            <TableHead>Restringido</TableHead>
-            <TableHead className={cn({ hidden: !config.userWantToDefineDOF })}>
+            <TableHead className="text-center">Add</TableHead>
+            <TableHead className="text-center">Remove</TableHead>
+            <TableHead className="text-center">Nombre</TableHead>
+            <TableHead className="text-center">Fuerza</TableHead>
+            <TableHead className="text-center">Desplazamiento</TableHead>
+            <TableHead className="text-center">Restringido</TableHead>
+            <TableHead
+              className={cn("text-center", {
+                hidden: !config.userWantToDefineDOF,
+              })}
+            >
               Grado de libertad
             </TableHead>
           </TableRow>
@@ -99,12 +103,13 @@ const VerticesTable = () => {
                 />
               </TableCell>
 
-              <TableCell>
+              <TableCell className="text-center">
                 <input
                   type="checkbox"
                   name={`isRestricted-${index}`}
                   checked={vertex.isRestricted}
                   onChange={(e) => vertices_onClickCheckbox(e)}
+                  className="h-5 w-5 accent-primary"
                 />
               </TableCell>
 

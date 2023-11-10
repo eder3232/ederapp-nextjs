@@ -217,11 +217,6 @@ export const useSpringStore = create(
         state.reactEdges[index][identifier as "name" | "from" | "to"] = value;
       }),
 
-    edges_onChangeCustom: (value: any, index: number, identifier: string) =>
-      set((state) => {
-        state.reactEdges[index][identifier as "name" | "from" | "to"] = value;
-      }),
-
     edges_onAddNewRow: (i) =>
       set((state) => {
         const elementToInsert = {

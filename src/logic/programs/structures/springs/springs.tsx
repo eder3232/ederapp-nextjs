@@ -8,6 +8,7 @@ import { IInputReactVertices } from "./interfaces/vertices";
 import { IInputReactEdges } from "./interfaces/edges";
 import VerticesTable from "./components/table/vertices-table";
 import { useSpringStore } from "./controller/springStore";
+import EdgesTable from "./components/table/edges-table";
 
 const Springs = ({
   initialData,
@@ -46,8 +47,11 @@ const Springs = ({
         </div>
 
         <VerticesTable />
+
+        <TypographyH2>Resortes:</TypographyH2>
+
+        <EdgesTable />
       </div>
-      <TypographyH2>Resortes:</TypographyH2>
     </div>
   );
 };
