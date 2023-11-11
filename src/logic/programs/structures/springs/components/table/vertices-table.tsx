@@ -119,7 +119,9 @@ const VerticesTable = () => {
                   name={`userDOF-${index}`}
                   value={vertex.userDOF}
                   onChange={(e) => vertices_onChange(e)}
-                  className={cn({ hidden: !config.userWantToDefineDOF })}
+                  className={cn("w-24 text-right", {
+                    hidden: !config.userWantToDefineDOF,
+                  })}
                 />
               </TableCell>
             </TableRow>

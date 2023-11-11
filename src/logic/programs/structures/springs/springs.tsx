@@ -9,6 +9,8 @@ import { IInputReactEdges } from "./interfaces/edges";
 import VerticesTable from "./components/table/vertices-table";
 import { useSpringStore } from "./controller/springStore";
 import EdgesTable from "./components/table/edges-table";
+import Save from "@/shared/supabase/save/save-button-client";
+import SaveButtonClient from "@/shared/supabase/save/save-button-client";
 
 const Springs = ({
   initialData,
@@ -27,8 +29,10 @@ const Springs = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
-    <div className="relative overflow-x-hidden">
+    <div className="relative flex flex-col gap-4 overflow-x-hidden">
       <TypographyH1>Resortes</TypographyH1>
+
+      <SaveButtonClient />
 
       <TypographyP>Ingresa los datos:</TypographyP>
 

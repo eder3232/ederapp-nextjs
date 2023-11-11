@@ -33,6 +33,7 @@ const AuthGoogleButtonClient = ({ session }: Props) => {
   const handleSignOut = async () => {
     await supabase.auth.signOut();
     router.refresh();
+    router.replace("/");
   };
 
   return (
@@ -46,18 +47,25 @@ const AuthGoogleButtonClient = ({ session }: Props) => {
         // </button>
 
         <DropdownMenu>
-          <DropdownMenuTrigger>Open</DropdownMenuTrigger>
+          <DropdownMenuTrigger asChild>
+            <Button>Cuenta</Button>
+          </DropdownMenuTrigger>
           <DropdownMenuContent>
             <DropdownMenuLabel>Mi cuenta</DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <Link href="/profile" passHref legacyBehavior>
-              <DropdownMenuItem>Perfil</DropdownMenuItem>
+            <Link href="/user/profile" passHref legacyBehavior>
+              <DropdownMenuItem>Mi Perfil</DropdownMenuItem>
             </Link>
             <DropdownMenuItem>Mis calculos</DropdownMenuItem>
             {/* <DropdownMenuItem>Billing</DropdownMenuItem>
             <DropdownMenuItem>Billing</DropdownMenuItem>
             <DropdownMenuItem>Team</DropdownMenuItem>
             <DropdownMenuItem>Subscription</DropdownMenuItem> */}
+            <DropdownMenuItem onClick={handleSignOut} asChild>
+              <Button variant="destructive" className="w-full">
+                Cerrar sesión
+              </Button>
+            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
 
