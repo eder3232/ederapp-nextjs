@@ -99,11 +99,11 @@ const EdgesTable = () => {
         </TableBody>
       </Table>
 
-      {
+      {/* {
         <pre>
           <code>{JSON.stringify(reactEdges, null, 2)}</code>
         </pre>
-      }
+      } */}
     </div>
   );
 };
