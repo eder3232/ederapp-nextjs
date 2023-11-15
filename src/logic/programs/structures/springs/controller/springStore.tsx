@@ -146,6 +146,7 @@ export const useSpringStore = create(
     // *Config
     firstCalculate: () =>
       set((state) => {
+        state.calculate();
         state.isCalculated = true;
       }),
     controller_userWantToDefineDOF: (e: React.ChangeEvent<HTMLInputElement>) =>

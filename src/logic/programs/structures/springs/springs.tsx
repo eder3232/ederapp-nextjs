@@ -3,7 +3,7 @@
 import TypographyH1 from "@/shared/components/typography/typography-h1";
 import TypographyH2 from "@/shared/components/typography/typography-h2";
 import TypographyP from "@/shared/components/typography/typography-p";
-import React, { useLayoutEffect } from "react";
+import React, { use, useLayoutEffect } from "react";
 import { IInputReactVertices } from "./interfaces/vertices";
 import { IInputReactEdges } from "./interfaces/edges";
 import VerticesTable from "./components/table/vertices-table";
@@ -13,12 +13,16 @@ import Save from "@/shared/supabase/save/save-button-client";
 import SaveButtonClient from "@/shared/supabase/save/save-button-client";
 import { Button } from "@/components/ui/button";
 import Errors from "./components/errors";
+import Results from "./components/results/resultsx";
 
 const Springs = ({
   initialData,
 }: {
   initialData: { vertices: IInputReactVertices[]; edges: IInputReactEdges[] };
 }) => {
+  const isCalculated = useSpringStore((state) => state.isCalculated);
+  const firstCalculate = useSpringStore((state) => state.firstCalculate);
+
   const config = useSpringStore((state) => state.config);
 
   const controler_userWantToDefineDOF = useSpringStore(
@@ -35,6 +39,7 @@ const Springs = ({
 
   useLayoutEffect(() => {
     setInitialData(initialData);
+    firstCalculate();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
@@ -81,6 +86,8 @@ const Springs = ({
         </Button>
 
         <Errors />
+
+        {isCalculated && <Results />}
       </div>
     </div>
   );

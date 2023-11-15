@@ -13,7 +13,7 @@ import {
   createClientComponentClient,
 } from "@supabase/auth-helpers-nextjs";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 interface Props {
   session: Session | null;
@@ -26,7 +26,9 @@ const AuthGoogleButtonClient = ({ session }: Props) => {
   const handleSignIn = async () => {
     await supabase.auth.signInWithOAuth({
       provider: "google",
-      options: { redirectTo: `${location.origin}/api/auth/callback` },
+      options: {
+        redirectTo: `${location.origin}/api/auth/callback`,
+      },
     });
   };
 
